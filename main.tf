@@ -90,8 +90,11 @@ resource "proxmox_cloud_init_disk" "ci" {
   #cloud-config
   users:
     - default
-  ssh_authorized_keys:
-    - ssh-rsa AAAAB3N......
+  chpasswd:
+    expire: false
+    users:
+    - {name: default, password: default, type: text}
+  ssh_pwauth: true
   EOT
 
   network_config = yamlencode({
