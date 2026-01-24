@@ -17,7 +17,7 @@ resource "proxmox_virtual_environment_vm" "ubuntu_vm2" {
   }
 
   memory {
-    dedicated = 2048
+    dedicated = 4096
   }
 
   disk {
